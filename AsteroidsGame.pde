@@ -1,15 +1,121 @@
-//your variable declarations here
-public void setup() 
+SpaceShip ship;
+ArrayList <Asteroid> astList;
+ArrayList <Bullets> bullet;
+int scrSiz, astNum, rectWidth, rectHeight;
+//boolean endGame, win;
+public void setup()
 {
-  //your code here
+  scrSiz = 500;
+  astNum = 20;
+  rectWidth = 200;
+  rectHeight = 100;
+  size(scrSiz,scrSiz);
+  ship = new SpaceShip();
+  bullet = new ArrayList <Bullets>();
+  astList = new ArrayList <Asteroid>();
+  for (int i=0; i< astNum; i++)
+  {
+    astList.add(new Asteroid());
+  }
+  endGame = false;
 }
-public void draw() 
+
+public void mousePressed()
 {
-  //your code here
+  if (mousePressed == true && endGame == false)
+    {
+      bullet.add(new Bullets(ship));
+    }
+  if (endGame == true)
+    {
+      if (mousePressed == true)
+      {
+        if (mouseX<(scrSiz/2 - rectWidth/2)+ rectWidth && mouseX>(scrSiz/2 - rectWidth/2))
+        {
+          if (mouseY<(scrSiz/2 + rectHeight) && mouseY>scrSiz/2)
+          {
+            endGame = false;
+          }
+        }
+      }
+    }
 }
 class SpaceShip //extends Floater  
 {   
-    //your code here
+      public void setX(int x) {myCenterX = x;}  
+  public int getX() {return (int)myCenterX;} 
+  public void setY(int y) {myCenterY = y;} 
+  public int getY() {return (int)myCenterY;}
+  public void setDirectionX(double x) {myDirectionX = x;}   
+  public double getDirectionX() {return myDirectionX;}
+  public void setDirectionY(double y) {myDirectionY = y;}     
+  public double getDirectionY() {return myDirectionY;}  
+  public void setPointDirection(int degrees) {myPointDirection = degrees;}  
+  public double getPointDirection() {return myPointDirection;}
+
+  public SpaceShip()
+  {
+    corners = 4;  
+    xCorners = new int[corners];
+    yCorners = new int[corners];
+      xCorners[0]=10;
+      xCorners[1]=-5;
+      xCorners[2]=-3;
+      xCorners[3]=-5;
+      yCorners[0]=0;
+      yCorners[1]=5;
+      yCorners[2]=0;
+      yCorners[3]=-5;  
+    myColor = 255;   
+    myCenterX = scrSiz/2; 
+    myCenterY = scrSiz/2;   
+    myDirectionX = 0; 
+    myDirectionY = 0; 
+    myPointDirection = -90;
+  }
+
+  public void rotate(SpaceShip theShip)
+  {  
+     //first quadrant   
+     if (mouseX>theShip.getX() && mouseY<theShip.getY())
+     {
+      myPointDirection = (-1)*(180/Math.PI)*Math.atan(Math.abs((double)mouseY - (double)theShip.getY())/Math.abs((double)mouseX - (double)theShip.getX()));
+     }
+     //second quadrant
+     if (mouseX<theShip.getX() && mouseY<theShip.getY())
+     {
+      myPointDirection = 180 + (180/Math.PI)*Math.atan(Math.abs((double)mouseY - (double)theShip.getY())/Math.abs((double)mouseX - (double)theShip.getX()));
+     }
+     //third quadrant
+     if (mouseX<theShip.getX() && mouseY>theShip.getY())
+     {
+      myPointDirection = 180 - (180/Math.PI)*Math.atan(Math.abs((double)mouseY - (double)theShip.getY())/Math.abs((double)mouseX - (double)theShip.getX()));
+     }
+     //fourth quadrant
+     if (mouseX>theShip.getX() && mouseY>theShip.getY())
+     {
+      myPointDirection = (180/Math.PI)*Math.atan(Math.abs((double)mouseY - (double)theShip.getY())/Math.abs((double)mouseX - (double)theShip.getX()));
+     }
+  }
+
+  public void keyPressed()
+  {
+    if (keyPressed && key == 32)
+    {
+      ship.accelerate(0.5);
+    }
+    if (keyPressed && keyCode == DOWN)
+    {
+      ship.accelerate(-0.1);
+    }
+    if (keyPressed && keyCode == 72) // H
+    {
+      ship.setX((int)(Math.random()*scrSiz));
+      ship.setY((int)(Math.random()*scrSiz));
+      ship.setDirectionX(0);
+      ship.setDirectionY(0);
+    }
+  }
 }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
