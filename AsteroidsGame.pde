@@ -1,6 +1,6 @@
 
 Star [] stars;
-SpaceShip ship;
+//SpaceShip ship;
 public boolean upkey = false;
 public boolean downkey = false;
 public boolean leftkey = false;
