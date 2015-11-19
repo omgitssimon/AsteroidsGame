@@ -1,5 +1,5 @@
 
-Star [] stars;
+//Star [] stars;
 //SpaceShip ship;
 public boolean upkey = false;
 public boolean downkey = false;
