@@ -1,3 +1,4 @@
+
 Star [] stars;
 SpaceShip ship;
 ArrayList <Asteroid> asteroidList;
@@ -218,7 +219,7 @@ public void rotate(SpaceShip theShip)
 
 public void keyPressed()
 {
-   if (keyPressed && key == 32)
+   if (keyPressed && keyCode == UP)
    {
     ship.accelerate(0.5);
    }
