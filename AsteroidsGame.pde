@@ -51,7 +51,7 @@ public void setup()
 
 public void draw()
 {
- background(random(0,255));
+ background(random(0,55));
  for(int i = 0; i < stars.length; i++)
   stars[i].show();
  if (goodGame == false)
