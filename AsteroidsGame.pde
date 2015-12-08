@@ -1,6 +1,6 @@
 
 Star [] stars;
-SpaceShip ship;
+//SpaceShip ship;
 ArrayList <Asteroid> asteroidList;
 ArrayList <Bullets> bullet;
 int sizeSize, asteroidS, rectW, rectH;
