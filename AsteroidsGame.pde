@@ -6,7 +6,7 @@
 int sizeSize, asteroidS, rectW, rectH;
 boolean goodGame, win;
 
-public void setup()
+//public void setup()
 {
  sizeSize = 600;
  asteroidS = 30;
@@ -49,7 +49,7 @@ public void setup()
    }
 }
 
-public void draw()
+//public void draw()
 {
  background(random(0,55));
  for(int i = 0; i < stars.length; i++)
