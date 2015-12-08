@@ -1,12 +1,13 @@
 
-//Star [] stars;
-//SpaceShip ship;
-//ArrayList <Asteroid> asteroidList;
-//ArrayList <Bullets> bullet;
+
+Star [] stars;
+SpaceShip ship;
+ArrayList <Asteroid> asteroidList;
+ArrayList <Bullets> bullet;
 int sizeSize, asteroidS, rectW, rectH;
 boolean goodGame, win;
 
-//public void setup()
+public void setup()
 {
  sizeSize = 600;
  asteroidS = 30;
@@ -27,7 +28,7 @@ boolean goodGame, win;
  goodGame = false;
 }
 
-//public void mousePressed()
+public void mousePressed()
 {
  if (mousePressed == true && goodGame == false)
    {
@@ -49,7 +50,7 @@ boolean goodGame, win;
    }
 }
 
-//public void draw()
+public void draw()
 {
  background(random(0,55));
  for(int i = 0; i < stars.length; i++)
@@ -139,7 +140,7 @@ boolean goodGame, win;
  }
 }
 
-//class Star 
+class Star 
 {
   private int myX, myY;
   private double starsSize;
@@ -169,7 +170,7 @@ class SpaceShip extends Floater
  public void setPointDirection(int degrees) {myPointDirection = degrees;} 
  public double getPointDirection() {return myPointDirection;}
 
-// public SpaceShip()
+ public SpaceShip()
  {
    corners = 4; 
    xCorners = new int[corners];
@@ -293,7 +294,7 @@ class Asteroid extends Floater
  public int rotSpeed, scal;
  public double speed, ang;
 
- //public Asteroid()
+ public Asteroid()
  {
    strokeWeight(10);
 
@@ -454,5 +455,3 @@ public void show ()
    endShape(CLOSE); 
  } 
 }
-
-
