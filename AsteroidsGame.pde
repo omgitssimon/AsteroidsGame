@@ -139,7 +139,7 @@ boolean goodGame, win;
  }
 }
 
-class Star 
+//class Star 
 {
   private int myX, myY;
   private double starsSize;
@@ -169,7 +169,7 @@ class SpaceShip extends Floater
  public void setPointDirection(int degrees) {myPointDirection = degrees;} 
  public double getPointDirection() {return myPointDirection;}
 
- public SpaceShip()
+// public SpaceShip()
  {
    corners = 4; 
    xCorners = new int[corners];
@@ -293,7 +293,7 @@ class Asteroid extends Floater
  public int rotSpeed, scal;
  public double speed, ang;
 
- public Asteroid()
+ //public Asteroid()
  {
    strokeWeight(10);
 
