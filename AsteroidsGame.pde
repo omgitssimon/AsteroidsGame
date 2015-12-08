@@ -1,8 +1,8 @@
 
-Star [] stars;
+//Star [] stars;
 //SpaceShip ship;
-ArrayList <Asteroid> asteroidList;
-ArrayList <Bullets> bullet;
+//ArrayList <Asteroid> asteroidList;
+//ArrayList <Bullets> bullet;
 int sizeSize, asteroidS, rectW, rectH;
 boolean goodGame, win;
 
