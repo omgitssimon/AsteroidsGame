@@ -267,7 +267,7 @@ public void show()
 
 
 {
-   fill(255,0,0);
+   fill(random(0,255),random(0,255),random(0,255));
    noStroke();
    ellipse((float)myCenterX, (float)myCenterY, 5, 5);
  }
